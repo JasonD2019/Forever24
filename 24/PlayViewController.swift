@@ -13,13 +13,19 @@ class PlayViewController: UIViewController {
     @IBOutlet var minus: UIButton!
     @IBOutlet var times: UIButton!
     @IBOutlet var over: UIButton!
-    @IBOutlet var textField: UILabel!
     @IBOutlet var l_parenthesis: UIButton!
     @IBOutlet var r_parenthesis: UIButton!
+    
+    @IBOutlet var textField: UILabel!
+    
     @IBOutlet var card1: UIImageView!
+    @IBOutlet var card1View: UIView!
     @IBOutlet var card2: UIImageView!
+    @IBOutlet var card2View: UIView!
     @IBOutlet var card3: UIImageView!
+    @IBOutlet var card3View: UIView!
     @IBOutlet var card4: UIImageView!
+    @IBOutlet var card4View: UIView!
     var card_1_Name: String = ""
     var card_2_Name: String = ""
     var card_3_Name: String = ""
@@ -34,20 +40,20 @@ class PlayViewController: UIViewController {
     }
     
     func presentCards(){
-        card_1_Name = "2_clubs"
-        let card_1_image = UIImage(named: card_1_Name)
+        card_1_Name = "2"
+        let card_1_image = UIImage(named: "\(card_1_Name)_clubs")
         card1.image = card_1_image
         
-        card_2_Name = "2_diamonds"
-        let card_2_image = UIImage(named: card_2_Name)
+        card_2_Name = "2"
+        let card_2_image = UIImage(named: "\(card_2_Name)_diamonds")
         card2.image = card_2_image
         
-        card_3_Name = "8_spades"
-        let card_3_image = UIImage(named: card_3_Name)
+        card_3_Name = "8"
+        let card_3_image = UIImage(named: "\(card_3_Name)_spades")
         card3.image = card_3_image
         
-        card_4_Name = "3_hearts"
-        let card_4_image = UIImage(named: card_4_Name)
+        card_4_Name = "3"
+        let card_4_image = UIImage(named: "\(card_4_Name)_hearts")
         card4.image = card_4_image
     }
     
@@ -56,26 +62,26 @@ class PlayViewController: UIViewController {
         let gesture2 = UITapGestureRecognizer(target: self, action:  #selector(self.clickCard2(sender:)))
         let gesture3 = UITapGestureRecognizer(target: self, action:  #selector(self.clickCard3(sender:)))
         let gesture4 = UITapGestureRecognizer(target: self, action:  #selector(self.clickCard4(sender:)))
-        card1.addGestureRecognizer(gesture1)
-        card2.addGestureRecognizer(gesture2)
-        card3.addGestureRecognizer(gesture3)
-        card4.addGestureRecognizer(gesture4)
+        card1View.addGestureRecognizer(gesture1)
+        card2View.addGestureRecognizer(gesture2)
+        card3View.addGestureRecognizer(gesture3)
+        card4View.addGestureRecognizer(gesture4)
     }
     
     @objc func clickCard1(sender : UITapGestureRecognizer) {
-        print(card_1_Name)
+        textField.text = "\(textField.text!) \(card_1_Name)"
     }
 
     @objc func clickCard2(sender : UITapGestureRecognizer) {
-        print(card_2_Name)
+        textField.text = "\(textField.text!) \(card_2_Name)"
     }
     
     @objc func clickCard3(sender : UITapGestureRecognizer) {
-        print(card_3_Name)
+        textField.text = "\(textField.text!) \(card_3_Name)"
     }
     
     @objc func clickCard4(sender : UITapGestureRecognizer) {
-        print(card_4_Name)
+        textField.text = "\(textField.text!) \(card_4_Name)"
     }
     
     @IBAction func clickPlus(_ sender: Any) {
