@@ -63,23 +63,19 @@ class PlayViewController: UIViewController {
     }
     
     @objc func clickCard1(sender : UITapGestureRecognizer) {
-        let name = card_1_Name
-        print(name)
+        print(card_1_Name)
     }
 
     @objc func clickCard2(sender : UITapGestureRecognizer) {
-        let name = card_2_Name
-        print(name)
+        print(card_2_Name)
     }
     
     @objc func clickCard3(sender : UITapGestureRecognizer) {
-        let name = card_3_Name
-        print(name)
+        print(card_3_Name)
     }
     
     @objc func clickCard4(sender : UITapGestureRecognizer) {
-        let name = card_4_Name
-        print(name)
+        print(card_4_Name)
     }
     
     @IBAction func clickPlus(_ sender: Any) {
