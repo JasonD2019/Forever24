@@ -71,7 +71,6 @@ class PlayViewController: UIViewController {
     }
     
     @objc func clickCard3(sender : UITapGestureRecognizer) {
-        card_3_Name = "hi"
         print(card_3_Name)
     }
     
