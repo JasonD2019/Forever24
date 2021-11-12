@@ -2,7 +2,7 @@
 //  PlayViewController.swift
 //  24
 //
-//  Created by 丁行健 on 11/5/21.
+//  Created by Xingjian Ding on 11/5/21.
 // Original cards images are from Playing Cards iOS Assets https://github.com/hayeah/playing-cards-assets.
 
 import UIKit
@@ -40,19 +40,17 @@ class PlayViewController: UIViewController {
     }
     
     func presentCards(){
-        card_1_Name = "2"
+        card_1_Name = String(Int.random(in: 1...13))
+        card_2_Name = String(Int.random(in: 1...13))
+        card_3_Name = String(Int.random(in: 1...13))
+        card_4_Name = String(Int.random(in: 1...13))
+        
         let card_1_image = UIImage(named: "\(card_1_Name)_clubs")
         card1.image = card_1_image
-        
-        card_2_Name = "2"
         let card_2_image = UIImage(named: "\(card_2_Name)_diamonds")
         card2.image = card_2_image
-        
-        card_3_Name = "8"
         let card_3_image = UIImage(named: "\(card_3_Name)_spades")
         card3.image = card_3_image
-        
-        card_4_Name = "3"
         let card_4_image = UIImage(named: "\(card_4_Name)_hearts")
         card4.image = card_4_image
     }
@@ -82,6 +80,7 @@ class PlayViewController: UIViewController {
     
     @objc func clickCard4(sender : UITapGestureRecognizer) {
         textField.text = "\(textField.text!) \(card_4_Name)"
+        checkLeagal(euqation: textField.text!)
     }
     
     @IBAction func clickPlus(_ sender: Any) {
@@ -104,6 +103,16 @@ class PlayViewController: UIViewController {
     }
     @IBAction func clickClear(_ sender: Any) {
         textField.text = ""
+    }
+    
+    func checkLeagal(euqation: String) -> Bool{
+//        let expr = try! NSExpression(format: euqation)
+//        if let result = expr.expressionValue(with: nil, context: nil) as? Int {
+//            print(result)
+//        } else {
+//            print("failed")
+//        }
+        return true
     }
     
     /*
