@@ -16,6 +16,7 @@ class PlayViewController: UIViewController {
     @IBOutlet var l_parenthesis: UIButton!
     @IBOutlet var r_parenthesis: UIButton!
     
+    @IBOutlet var levelLabel: UILabel!
     @IBOutlet var textField: UILabel!
     
     @IBOutlet var card1: UIImageView!
@@ -30,6 +31,13 @@ class PlayViewController: UIViewController {
     var card_2_Name: String = ""
     var card_3_Name: String = ""
     var card_4_Name: String = ""
+    var level = 0
+    var resource = [["4","6", "2", "2"],
+                    ["3", "8", "1", "1"],
+                    ["12","12", "2", "2"]]
+    var answer = [[" 4 x 6 % 2 x 2", " 4 x 6 x 2 % 2"],
+                  [" 3 x 8 x 1 x 1", " 3 x 8 % 1 x 1", " 3 x 8 x 1 % 1"],
+                  [" 12 + 12 + 2 - 2"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +48,14 @@ class PlayViewController: UIViewController {
     }
     
     func presentCards(){
-        card_1_Name = String(Int.random(in: 1...13))
-        card_2_Name = String(Int.random(in: 1...13))
-        card_3_Name = String(Int.random(in: 1...13))
-        card_4_Name = String(Int.random(in: 1...13))
+//        card_1_Name = String(Int.random(in: 1...13))
+//        card_2_Name = String(Int.random(in: 1...13))
+//        card_3_Name = String(Int.random(in: 1...13))
+//        card_4_Name = String(Int.random(in: 1...13))
+        card_1_Name = resource[level][0]
+        card_2_Name = resource[level][1]
+        card_3_Name = resource[level][2]
+        card_4_Name = resource[level][3]
         
         let card_1_image = UIImage(named: "\(card_1_Name)_clubs")
         card1.image = card_1_image
@@ -80,7 +92,7 @@ class PlayViewController: UIViewController {
     
     @objc func clickCard4(sender : UITapGestureRecognizer) {
         textField.text = "\(textField.text!) \(card_4_Name)"
-        checkLeagal(euqation: textField.text!)
+        //checkLeagal(euqation: textField.text!)
     }
     
     @IBAction func clickPlus(_ sender: Any) {
@@ -104,14 +116,38 @@ class PlayViewController: UIViewController {
     @IBAction func clickClear(_ sender: Any) {
         textField.text = ""
     }
+    @IBAction func clickSubmit(_ sender: Any) {
+        let text = textField.text!
+        let theAnswer = answer[level]
+        if theAnswer.contains(text){
+            print("Win")
+            win()
+        }
+        else{
+            print(text)
+            print("Wrong")
+        }
+    }
+    @IBAction func clickImpossible(_ sender: Any) {
+        let theAnswer = answer[level]
+        if theAnswer == []{
+            print("Win")
+            win()
+        }
+        else{
+            print("Wrong")
+        }
+    }
+    
+    func win(){
+        level += 1
+        levelLabel.text = "Level \(level+1)"
+        textField.text = ""
+        presentCards()
+    }
     
     func checkLeagal(euqation: String) -> Bool{
-//        let expr = try! NSExpression(format: euqation)
-//        if let result = expr.expressionValue(with: nil, context: nil) as? Int {
-//            print(result)
-//        } else {
-//            print("failed")
-//        }
+
         return true
     }
     
