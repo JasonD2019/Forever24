@@ -1,0 +1,20 @@
+PODS:
+  - JFPopup (1.4.0):
+    - JRBaseKit (~> 0.9.0)
+  - JRBaseKit (0.9.0)
+
+DEPENDENCIES:
+  - JFPopup (= 1.4.0)
+
+SPEC REPOS:
+  trunk:
+    - JFPopup
+    - JRBaseKit
+
+SPEC CHECKSUMS:
+  JFPopup: ec02a2c1574d90cb54d182aec9213034735da70e
+  JRBaseKit: f4a95149f6b68417348e63065d384f22501cf2ce
+
+PODFILE CHECKSUM: 62d9054fc30c4a309fa7656b93b72b220d5233a6
+
+COCOAPODS: 1.11.2

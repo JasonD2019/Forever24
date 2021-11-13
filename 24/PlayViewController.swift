@@ -6,6 +6,7 @@
 // Original cards images are from Playing Cards iOS Assets https://github.com/hayeah/playing-cards-assets.
 
 import UIKit
+import JFPopup
 
 class PlayViewController: UIViewController {
 
@@ -140,6 +141,16 @@ class PlayViewController: UIViewController {
     }
     
     func win(){
+        JFPopupView.popup.alert {[
+           .subTitle("YOU WIN!!! Press OK to next level"),
+           .showCancel(false),
+           .confirmAction([
+               .text("OK"),
+               .tapActionCallback({
+                JFPopupView.popup.toast(hit: "Level \(self.level + 1)")
+               })
+           ])
+       ]}
         level += 1
         levelLabel.text = "Level \(level+1)"
         textField.text = ""
