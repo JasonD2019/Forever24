@@ -366,6 +366,8 @@
                         <outlet property="plus" destination="egq-pG-ygb" id="QjZ-Vx-NX9"/>
                         <outlet property="r_parenthesis" destination="d2l-QP-MTs" id="XpT-R1-Dql"/>
                         <outlet property="textField" destination="yvK-hN-VR6" id="sMc-cs-psA"/>
+                        <outlet property="timeLabel" destination="Vf9-bW-bwG" id="q3n-mQ-o0Y"/>
+                        <outlet property="timeProgessView" destination="9mY-1Q-TmF" id="SpZ-1L-GkQ"/>
                         <outlet property="times" destination="MoB-Ku-B2H" id="Wgd-Q9-E0u"/>
                     </connections>
                 </viewController>

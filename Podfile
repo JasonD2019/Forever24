@@ -7,5 +7,4 @@ target '24' do
 
   # Pods for 24
   pod 'JFPopup', '1.4.0'
-
 end

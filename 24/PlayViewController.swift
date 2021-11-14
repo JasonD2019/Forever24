@@ -19,6 +19,8 @@ class PlayViewController: UIViewController {
     
     @IBOutlet var levelLabel: UILabel!
     @IBOutlet var textField: UILabel!
+    @IBOutlet var timeProgessView: UIProgressView!
+    @IBOutlet var timeLabel: UILabel!
     
     @IBOutlet var card1: UIImageView!
     @IBOutlet var card1View: UIView!
@@ -39,13 +41,18 @@ class PlayViewController: UIViewController {
     var answer = [[" 4 x 6 % 2 x 2", " 4 x 6 x 2 % 2"],
                   [" 3 x 8 x 1 x 1", " 3 x 8 % 1 x 1", " 3 x 8 x 1 % 1"],
                   [" 12 + 12 + 2 - 2"]]
+    var time = 10
+    var limitTime = 0
+    var timeCount = 0
+    var timeProgressIsRunning = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         presentCards()
         clickCheck()
-        // Do any additional setup after loading the view.
+
     }
     
     func presentCards(){
@@ -66,6 +73,7 @@ class PlayViewController: UIViewController {
         card3.image = card_3_image
         let card_4_image = UIImage(named: "\(card_4_Name)_hearts")
         card4.image = card_4_image
+        startCountDown()
     }
     
     func clickCheck(){
@@ -125,7 +133,7 @@ class PlayViewController: UIViewController {
             win()
         }
         else{
-            print(text)
+            lose()
             print("Wrong")
         }
     }
@@ -136,11 +144,13 @@ class PlayViewController: UIViewController {
             win()
         }
         else{
+            lose()
             print("Wrong")
         }
     }
     
     func win(){
+        timeProgressIsRunning = false
         JFPopupView.popup.alert {[
            .subTitle("YOU WIN!!! Press OK to next level"),
            .showCancel(false),
@@ -148,18 +158,68 @@ class PlayViewController: UIViewController {
                .text("OK"),
                .tapActionCallback({
                 JFPopupView.popup.toast(hit: "Level \(self.level + 1)")
+                self.timeProgressIsRunning = true
+                self.level += 1
+                self.levelLabel.text = "Level \(self.level+1)"
+                self.textField.text = ""
+                self.presentCards()
                })
            ])
        ]}
-        level += 1
-        levelLabel.text = "Level \(level+1)"
-        textField.text = ""
-        presentCards()
+    }
+    
+    func lose(){
+        timeProgressIsRunning = false
+        JFPopupView.popup.alert {[
+           .subTitle("WRONG. Press OK to play again"),
+           .showCancel(false),
+           .confirmAction([
+               .text("OK"),
+               .tapActionCallback({
+                    JFPopupView.popup.toast(hit: "Level \(self.level + 1)")
+                    self.timeProgressIsRunning = true
+                    self.textField.text = ""
+                    self.presentCards()
+               })
+           ])
+       ]}
     }
     
     func checkLeagal(euqation: String) -> Bool{
 
         return true
+    }
+    
+    // timer: https://www.jb51.net/article/181706.htm
+    func startCountDown() {
+        performSelector(inBackground: #selector(countDownThread), with: nil)
+    }
+    
+    @objc func countDownThread() {
+        limitTime = time
+        timeCount = time
+        for _ in 0..<timeCount + 1 {
+            if timeProgressIsRunning == true{
+                limitTime = limitTime - 1;
+                self.performSelector(onMainThread: #selector(updateJumpBtn), with: self, waitUntilDone: true)
+                sleep(1);
+            }
+            else{
+                return
+            }
+        }
+    }
+    
+    @objc func updateJumpBtn() {
+        if (limitTime < 0) {
+            lose()
+        }
+        else {
+            let str = String(format: "%.2f", Float(limitTime)/Float(timeCount))
+            let time = Float(str) ?? 0.0
+            timeLabel.text = String(limitTime)
+            timeProgessView.setProgress(time, animated: true)
+        }
     }
     
     /*
