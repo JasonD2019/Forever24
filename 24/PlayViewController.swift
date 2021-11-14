@@ -37,10 +37,15 @@ class PlayViewController: UIViewController {
     var level = 0
     var resource = [["4","6", "2", "2"],
                     ["3", "8", "1", "1"],
-                    ["12","12", "2", "2"]]
+                    ["12","12", "2", "2"],
+                    ["1","1", "2", "2"],
+                    ["2","2", "2", "3"]]
     var answer = [[" 4 x 6 % 2 x 2", " 4 x 6 x 2 % 2"],
                   [" 3 x 8 x 1 x 1", " 3 x 8 % 1 x 1", " 3 x 8 x 1 % 1"],
-                  [" 12 + 12 + 2 - 2"]]
+                  [" 12 + 12 + 2 - 2"],
+                  [],
+                  [" 2 x 2 x 2 x 3", " 3 x 2 x 2 x 2", " 2 x 3 x 2 x 2", " 2 x 2 x 3 x 2"]
+                 ]
     var time = 10
     var limitTime = 0
     var timeCount = 0
@@ -157,9 +162,9 @@ class PlayViewController: UIViewController {
            .confirmAction([
                .text("OK"),
                .tapActionCallback({
+                self.level += 1
                 JFPopupView.popup.toast(hit: "Level \(self.level + 1)")
                 self.timeProgressIsRunning = true
-                self.level += 1
                 self.levelLabel.text = "Level \(self.level+1)"
                 self.textField.text = ""
                 self.presentCards()
@@ -170,19 +175,23 @@ class PlayViewController: UIViewController {
     
     func lose(){
         timeProgressIsRunning = false
-        JFPopupView.popup.alert {[
-           .subTitle("WRONG. Press OK to play again"),
-           .showCancel(false),
-           .confirmAction([
+        self.popup.alert {
+           [.title("WRONG."),
+            .subTitle("Press OK to play again"),
+            .cancelAction([.text("Cancle"),.tapActionCallback({
+                            JFPopupView.popup.toast(hit: "Cancled")
+                        })]),
+            .confirmAction([
                .text("OK"),
                .tapActionCallback({
-                    JFPopupView.popup.toast(hit: "Level \(self.level + 1)")
+                    JFPopupView.popup.toast(hit: "Level \(self.level+1)")
                     self.timeProgressIsRunning = true
                     self.textField.text = ""
                     self.presentCards()
                })
-           ])
-       ]}
+            ])
+           ]
+       }
     }
     
     func checkLeagal(euqation: String) -> Bool{

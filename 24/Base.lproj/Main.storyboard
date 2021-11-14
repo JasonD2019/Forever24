@@ -457,7 +457,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVg-63-iLl">
                                                         <rect key="frame" x="166" y="8" width="97" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="enterTime:" destination="O2d-ed-g56" eventType="editingDidEnd" id="StE-Be-VO8"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -492,13 +495,13 @@
                                         <rect key="frame" x="0.0" y="382" width="350" height="20.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0y-ug-n2e">
-                                                <rect key="frame" x="0.0" y="0.0" width="217" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="179.33333333333334" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flS-fF-VN5">
-                                                <rect key="frame" x="217" y="0.0" width="133" height="20.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forever24@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flS-fF-VN5">
+                                                <rect key="frame" x="179.33333333333337" y="0.0" width="170.66666666666663" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -522,6 +525,10 @@
                             <constraint firstItem="jKA-M2-eRl" firstAttribute="centerX" secondItem="eYc-3J-6aw" secondAttribute="centerX" id="w0N-cG-HmI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="O9p-en-zW3"/>
+                    <connections>
+                        <outlet property="timerField" destination="bVg-63-iLl" id="299-bt-21Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xY7-Uf-7RI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -543,22 +550,24 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dTD-fg-Wwr">
-                                <rect key="frame" x="75" y="226" width="240" height="345"/>
+                                <rect key="frame" x="16" y="117" width="358" height="770"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">This is Xingjian Ding, Yuxiang Huang and John Chu Final Project for Fall 2021 CSE438. Our app is a game app based on the 24 Game, whose objective is to find a way to manipulate four given integers using mathematical operations (addition, subtraction, multiplication, division, and parentheses) to make the final result 24. In a single-player game, a player will be given four random poker cards, and a countdown timer will be started at the same time. The player wins if he or she is able to insert a formula to achieve the result of 24 with the four given cards in a certain amount of time. An “impossible” button will be available to the user if the user thinks it is impossible to achieve 24 with the cards given; the player loses the game if he or she presses the button while the given cards are actually “manipulatable”. An additional feature we might incorporate is a multiplayer mode. Several different players will be able to compete with each other online. The player who solved the puzzle first is considered the winner of the game. The biggest difference between multiplayer and single player games is that, instead of a countdown timer, the timer for multiplayer games would be a timer that starts at 0 that records the elapsed since the beginning of the game. If all players consider achieving 24 is “impossible”, four new random cards will be provided and the timer will be refreshed.
+</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IUk-kD-XuD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JIM-vR-bq1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cn4-tQ-ctJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4823" y="107"/>
+            <point key="canvasLocation" x="4820" y="106.63507109004739"/>
         </scene>
     </scenes>
     <resources>

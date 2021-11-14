@@ -12,9 +12,15 @@ class ViewController: UIViewController {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var settingButton: UIButton!
     @IBOutlet var aboutButton: UIButton!
+    var vc1: PlayViewController!
+    var vc2: SettingViewController!
+    var vc3: AboutViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        vc1 = storyboard?.instantiateViewController(identifier: "gameVC")
+        vc2 = storyboard?.instantiateViewController(identifier: "settingVC")
+        vc3 = storyboard?.instantiateViewController(identifier: "aboutVC")
         // Do any additional setup after loading the view.
         setButtonstyle()
     }
@@ -35,18 +41,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func goToGamePage(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(identifier: "gameVC") as! PlayViewController
-        present(vc, animated: true)
+        present(vc1, animated: false)
     }
     
     @IBAction func goToSettingPage(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(identifier: "settingVC") as! SettingViewController
-        present(vc, animated: true)
+        present(vc2, animated: false)
     }
     
     @IBAction func goToAboutPage(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(identifier: "aboutVC") as! AboutViewController
-        present(vc, animated: true)
+        present(vc3, animated: false)
     }
 }
 
