@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  24
 //
-//  Created by 丁行健 on 11/4/21.
+//  Created by Xingjian Ding on 11/4/21.
 //
 
 import UIKit

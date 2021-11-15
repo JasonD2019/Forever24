@@ -7,6 +7,7 @@
 
 import UIKit
 import JFPopup
+import MathParser
 
 class PlayViewController: UIViewController {
 
@@ -61,14 +62,25 @@ class PlayViewController: UIViewController {
     }
     
     func presentCards(){
-//        card_1_Name = String(Int.random(in: 1...13))
-//        card_2_Name = String(Int.random(in: 1...13))
-//        card_3_Name = String(Int.random(in: 1...13))
-//        card_4_Name = String(Int.random(in: 1...13))
-        card_1_Name = resource[level][0]
-        card_2_Name = resource[level][1]
-        card_3_Name = resource[level][2]
-        card_4_Name = resource[level][3]
+//        do{
+//            let value = try "1 + 2".evaluate()
+//            print(value)
+//        }
+//        catch{
+//            print("wrong")
+//        }
+        if level < 5{
+            card_1_Name = resource[level][0]
+            card_2_Name = resource[level][1]
+            card_3_Name = resource[level][2]
+            card_4_Name = resource[level][3]
+        }
+        else{
+            card_1_Name = String(Int.random(in: 1...13))
+            card_2_Name = String(Int.random(in: 1...13))
+            card_3_Name = String(Int.random(in: 1...13))
+            card_4_Name = String(Int.random(in: 1...13))
+        }
         
         let card_1_image = UIImage(named: "\(card_1_Name)_clubs")
         card1.image = card_1_image
@@ -132,25 +144,37 @@ class PlayViewController: UIViewController {
     }
     @IBAction func clickSubmit(_ sender: Any) {
         let text = textField.text!
-        let theAnswer = answer[level]
-        if theAnswer.contains(text){
-            print("Win")
-            win()
+        var equation = text.replacingOccurrences(of: "x", with: "*")
+        equation = equation.replacingOccurrences(of: "%", with: "/")
+        do{
+            print(equation)
+            let value = try equation.evaluate()
+            print(value)
+            if value == 24{
+                win()
+            }
+            else{
+                lose()
+            }
         }
-        else{
+        catch{
             lose()
-            print("Wrong")
         }
     }
     @IBAction func clickImpossible(_ sender: Any) {
-        let theAnswer = answer[level]
-        if theAnswer == []{
-            print("Win")
+        let c1 = Int(card_1_Name) ?? 0
+        let c2 = Int(card_2_Name) ?? 0
+        let c3 = Int(card_3_Name) ?? 0
+        let c4 = Int(card_4_Name) ?? 0
+        let solution = Solution.init()
+        let result = solution.judgePoint24([c1, c2, c3, c4])
+        print(c1,c2,c3,c4)
+        print(result)
+        if result == false{
             win()
         }
         else{
             lose()
-            print("Wrong")
         }
     }
     

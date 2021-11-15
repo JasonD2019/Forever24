@@ -2,7 +2,7 @@
 //  Functions.swift
 //  24
 //
-//  Created by 丁行健 on 11/13/21.
+//  Created by Xingjian Ding on 11/13/21.
 //
 
 import Foundation
@@ -20,7 +20,7 @@ class Solution {
             return false
         }
         guard nums.count != 1 else {
-            return abs(nums[0]) - 24.0 < 0.000001;
+            return abs(nums[0] - 24.0) < 0.000001
         }
         for (offset, element) in nums.enumerated() {
             for (offset2, element2) in nums.enumerated() {

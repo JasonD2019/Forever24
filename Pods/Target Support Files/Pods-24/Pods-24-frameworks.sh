@@ -176,10 +176,12 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DDMathParser/MathParser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JFPopup/JFPopup.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JRBaseKit/JRBaseKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DDMathParser/MathParser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JFPopup/JFPopup.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JRBaseKit/JRBaseKit.framework"
 fi

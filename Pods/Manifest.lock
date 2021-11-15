@@ -1,9 +1,11 @@
 PODS:
+  - DDMathParser (2.0.0)
   - JFPopup (1.4.0):
     - JRBaseKit (~> 0.9.0)
   - JRBaseKit (0.9.0)
 
 DEPENDENCIES:
+  - DDMathParser (from `https://github.com/davedelong/DDMathParser.git`, branch `master`)
   - JFPopup (= 1.4.0)
 
 SPEC REPOS:
@@ -11,10 +13,21 @@ SPEC REPOS:
     - JFPopup
     - JRBaseKit
 
+EXTERNAL SOURCES:
+  DDMathParser:
+    :branch: master
+    :git: https://github.com/davedelong/DDMathParser.git
+
+CHECKOUT OPTIONS:
+  DDMathParser:
+    :commit: 6f5bd1281216200dfb96998836fcb35ef7cd024e
+    :git: https://github.com/davedelong/DDMathParser.git
+
 SPEC CHECKSUMS:
+  DDMathParser: 5f0ac82ef206f4f6efa23ee7a39335e7cae43e9e
   JFPopup: ec02a2c1574d90cb54d182aec9213034735da70e
   JRBaseKit: f4a95149f6b68417348e63065d384f22501cf2ce
 
-PODFILE CHECKSUM: fba495f767a028e9a150de95978817f45d46413f
+PODFILE CHECKSUM: 2c34e00ef5452106becc909e8353803aedac4919
 
 COCOAPODS: 1.11.2
