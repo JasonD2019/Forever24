@@ -10,6 +10,7 @@ import UIKit
 class SettingViewController: UIViewController {
 
     @IBOutlet var timerField: UITextField!
+    var playVC: PlayViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +20,14 @@ class SettingViewController: UIViewController {
     
 
     @IBAction func enterTime(_ sender: Any) {
-        let vc = ViewController()
-        let timer: Int? = Int(timerField.text!)
-        //vc.vc1.time = timer!
+        let newtime: Int? = Int(timerField.text!)
+        playVC!.setNewTime(newtime: newtime!)
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

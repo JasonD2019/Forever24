@@ -12,7 +12,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_4" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="mainVC" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -106,7 +106,18 @@
                                     <constraint firstAttribute="height" constant="44" id="zl6-bB-2gL"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="GamePage" id="Rjm-zt-imr"/>
+                                    <navigationItem title="GamePage" id="Rjm-zt-imr">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="OAq-Tu-N5s">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bt2-wx-gFd">
+                                                <rect key="frame" x="16" y="7" width="86" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="vpA-hp-66q" eventType="touchUpInside" id="1nD-pi-WSY"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jK-Ia-SMz">
@@ -387,6 +398,17 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <items>
                                     <navigationItem title="Setting" id="sTa-37-8rI">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="N1v-6S-JhF">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vKR-gr-efV">
+                                                <rect key="frame" x="16" y="7" width="86" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="vpA-hp-66q" eventType="touchUpInside" id="jn8-by-Lo8"/>
+                                                    <action selector="backButton:" destination="O2d-ed-g56" eventType="touchUpInside" id="rRM-0i-z0s"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="ecc-Vz-n58">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Sf-gc-6QW">
                                                 <rect key="frame" x="288" y="7" width="86" height="30"/>
@@ -546,15 +568,27 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="About" id="1iD-QM-XES"/>
+                                    <navigationItem title="About" id="1iD-QM-XES">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Nmg-rb-mNy">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ibJ-2C-FDg">
+                                                <rect key="frame" x="16" y="7" width="86" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="vpA-hp-66q" eventType="touchUpInside" id="E9X-vZ-7AS"/>
+                                                    <action selector="backButtonn:" destination="g3N-Rr-pBs" eventType="touchUpInside" id="VIN-6X-3df"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dTD-fg-Wwr">
                                 <rect key="frame" x="16" y="117" width="358" height="770"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">This is Xingjian Ding, Yuxiang Huang and John Chu Final Project for Fall 2021 CSE438. Our app is a game app based on the 24 Game, whose objective is to find a way to manipulate four given integers using mathematical operations (addition, subtraction, multiplication, division, and parentheses) to make the final result 24. In a single-player game, a player will be given four random poker cards, and a countdown timer will be started at the same time. The player wins if he or she is able to insert a formula to achieve the result of 24 with the four given cards in a certain amount of time. An “impossible” button will be available to the user if the user thinks it is impossible to achieve 24 with the cards given; the player loses the game if he or she presses the button while the given cards are actually “manipulatable”. An additional feature we might incorporate is a multiplayer mode. Several different players will be able to compete with each other online. The player who solved the puzzle first is considered the winner of the game. The biggest difference between multiplayer and single player games is that, instead of a countdown timer, the timer for multiplayer games would be a timer that starts at 0 that records the elapsed since the beginning of the game. If all players consider achieving 24 is “impossible”, four new random cards will be provided and the timer will be refreshed.
-</mutableString>
+                                <string key="text">This is Xingjian Ding, Yuxiang Huang and John Chu Final Project for Fall 2021 CSE438. Our app is a game app based on the 24 Game, whose objective is to find a way to manipulate four given integers using mathematical operations (addition, subtraction, multiplication, division, and parentheses) to make the final result 24. In a single-player game, a player will be given four random poker cards, and a countdown timer will be started at the same time. The player wins if he or she is able to insert a formula to achieve the result of 24 with the four given cards in a certain amount of time. An “impossible” button will be available to the user if the user thinks it is impossible to achieve 24 with the cards given; the player loses the game if he or she presses the button while the given cards are actually “manipulatable”. An additional feature we might incorporate is a multiplayer mode. Several different players will be able to compete with each other online. The player who solved the puzzle first is considered the winner of the game. The biggest difference between multiplayer and single player games is that, instead of a countdown timer, the timer for multiplayer games would be a timer that starts at 0 that records the elapsed since the beginning of the game. If all players consider achieving 24 is “impossible”, four new random cards will be provided and the timer will be refreshed.
+</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

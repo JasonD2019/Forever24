@@ -255,6 +255,14 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func setNewTime(newtime: Int){
+        time = newtime
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        print("back")
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

@@ -20,7 +20,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vc1 = storyboard?.instantiateViewController(identifier: "gameVC")
         vc2 = storyboard?.instantiateViewController(identifier: "settingVC")
+        vc2.playVC = vc1
         vc3 = storyboard?.instantiateViewController(identifier: "aboutVC")
+        vc1.modalPresentationStyle = .fullScreen
+        vc2.modalPresentationStyle = .fullScreen
+        vc3.modalPresentationStyle = .fullScreen
         // Do any additional setup after loading the view.
         setButtonstyle()
     }
