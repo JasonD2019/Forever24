@@ -21,12 +21,14 @@ class ViewController: UIViewController {
         vc1 = storyboard?.instantiateViewController(identifier: "gameVC")
         vc2 = storyboard?.instantiateViewController(identifier: "settingVC")
         vc2.playVC = vc1
+        vc2.mainVC = self
         vc3 = storyboard?.instantiateViewController(identifier: "aboutVC")
         vc1.modalPresentationStyle = .fullScreen
         vc2.modalPresentationStyle = .fullScreen
         vc3.modalPresentationStyle = .fullScreen
         // Do any additional setup after loading the view.
         setButtonstyle()
+        MusicPlayer.shared.startBackgroundMusic()
     }
 
     func setButtonstyle(){

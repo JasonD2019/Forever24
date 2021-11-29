@@ -409,13 +409,6 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="ecc-Vz-n58">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Sf-gc-6QW">
-                                                <rect key="frame" x="288" y="7" width="86" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Done"/>
-                                            </button>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -434,23 +427,29 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-ay-znN">
                                                 <rect key="frame" x="111.66666666666664" y="0.0" width="238.33333333333337" height="32"/>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="White"/>
+                                                    <segment title="Gray"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="backgroundColorChange:" destination="O2d-ed-g56" eventType="valueChanged" id="AiY-nZ-0lF"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GZ6-bF-Hyv">
                                         <rect key="frame" x="0.0" y="91" width="350" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Volumn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-2Q-d4F">
-                                                <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-2Q-d4F">
+                                                <rect key="frame" x="0.0" y="0.0" width="110.33333333333333" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dn7-cl-gcY">
-                                                <rect key="frame" x="128.66666666666663" y="0.0" width="223.33333333333337" height="31"/>
+                                                <rect key="frame" x="128.33333333333337" y="0.0" width="223.66666666666663" height="31"/>
+                                                <connections>
+                                                    <action selector="SliderChanged:" destination="O2d-ed-g56" eventType="valueChanged" id="B23-MS-taK"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -485,7 +484,6 @@
                                                         </connections>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="M5d-AK-hyV" secondAttribute="trailing" constant="5.6843418860808015e-14" id="2yx-vD-Ysj"/>
                                                     <constraint firstItem="M5d-AK-hyV" firstAttribute="top" secondItem="M7l-qk-PH9" secondAttribute="top" id="N8l-he-uBl"/>
@@ -549,7 +547,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="O9p-en-zW3"/>
                     <connections>
+                        <outlet property="backgroundSegmented" destination="IJy-ay-znN" id="UXi-Iv-iM0"/>
                         <outlet property="timerField" destination="bVg-63-iLl" id="299-bt-21Z"/>
+                        <outlet property="volumeSlider" destination="Dn7-cl-gcY" id="rAr-Ou-31A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xY7-Uf-7RI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SettingViewController: UIViewController {
 
     @IBOutlet var timerField: UITextField!
     var playVC: PlayViewController?
+    var mainVC: ViewController?
+    @IBOutlet var backgroundSegmented: UISegmentedControl!
+    @IBOutlet weak var volumeSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,23 @@ class SettingViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func backgroundColorChange(_ sender: Any) {
+        switch backgroundSegmented.selectedSegmentIndex{
+        case 0:
+            self.view.backgroundColor = UIColor.white
+        case 1:
+            self.view.backgroundColor = UIColor.gray
+        default:
+            break
+        }
+    }
+    
+    @IBAction func SliderChanged(_ sender: Any) {
+        let currentVolume = Float(volumeSlider.value)
+        MusicPlayer.shared.changeVolume(newvolume: currentVolume)
+    }
+    
     
     /*
     // MARK: - Navigation
