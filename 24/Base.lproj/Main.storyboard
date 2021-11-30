@@ -427,8 +427,8 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IJy-ay-znN">
                                                 <rect key="frame" x="111.66666666666664" y="0.0" width="238.33333333333337" height="32"/>
                                                 <segments>
-                                                    <segment title="White"/>
-                                                    <segment title="Gray"/>
+                                                    <segment title="Light"/>
+                                                    <segment title="Dark"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="backgroundColorChange:" destination="O2d-ed-g56" eventType="valueChanged" id="AiY-nZ-0lF"/>

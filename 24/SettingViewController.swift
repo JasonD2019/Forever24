@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var timerField: UITextField!
     var playVC: PlayViewController?
     var mainVC: ViewController?
+    var aboutVC: AboutViewController?
     @IBOutlet var backgroundSegmented: UISegmentedControl!
     @IBOutlet weak var volumeSlider: UISlider!
     
@@ -35,9 +36,15 @@ class SettingViewController: UIViewController {
     @IBAction func backgroundColorChange(_ sender: Any) {
         switch backgroundSegmented.selectedSegmentIndex{
         case 0:
-            self.view.backgroundColor = UIColor.white
+            self.overrideUserInterfaceStyle = .light
+            mainVC?.overrideUserInterfaceStyle = .light
+            playVC?.overrideUserInterfaceStyle = .light
+            aboutVC?.overrideUserInterfaceStyle = .light
         case 1:
-            self.view.backgroundColor = UIColor.gray
+            self.overrideUserInterfaceStyle = .dark
+            mainVC?.overrideUserInterfaceStyle = .dark
+            playVC?.overrideUserInterfaceStyle = .dark
+            aboutVC?.overrideUserInterfaceStyle = .dark
         default:
             break
         }

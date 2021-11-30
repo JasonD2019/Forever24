@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         vc2.playVC = vc1
         vc2.mainVC = self
         vc3 = storyboard?.instantiateViewController(identifier: "aboutVC")
+        vc2.aboutVC = vc3
         vc1.modalPresentationStyle = .fullScreen
         vc2.modalPresentationStyle = .fullScreen
         vc3.modalPresentationStyle = .fullScreen
