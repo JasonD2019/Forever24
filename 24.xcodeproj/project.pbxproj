@@ -19,6 +19,7 @@
 		96551C7127362B5800D3C17F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96551C7027362B5800D3C17F /* AboutViewController.swift */; };
 		9660AE91275574C8003F2228 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660AE90275574C8003F2228 /* Sound.swift */; };
 		9660AE9327557703003F2228 /* Monkeys-Spinning-Monkeys.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9660AE9227557703003F2228 /* Monkeys-Spinning-Monkeys.mp3 */; };
+		9660AED0275C24DD003F2228 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660AECF275C24DD003F2228 /* LoginViewController.swift */; };
 		96CDA94E27405C140043B5E2 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDA94D27405C140043B5E2 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		96551C7027362B5800D3C17F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		9660AE90275574C8003F2228 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		9660AE9227557703003F2228 /* Monkeys-Spinning-Monkeys.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Monkeys-Spinning-Monkeys.mp3"; sourceTree = "<group>"; };
+		9660AECF275C24DD003F2228 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96CDA94D27405C140043B5E2 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				96551C542734980C00D3C17F /* SceneDelegate.swift */,
 				96551C562734980C00D3C17F /* ViewController.swift */,
 				96551C582734980C00D3C17F /* Main.storyboard */,
+				9660AECF275C24DD003F2228 /* LoginViewController.swift */,
 				96551C6C27362B4300D3C17F /* PlayViewController.swift */,
 				96551C6E27362B4B00D3C17F /* SettingViewController.swift */,
 				96551C7027362B5800D3C17F /* AboutViewController.swift */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9660AED0275C24DD003F2228 /* LoginViewController.swift in Sources */,
 				96551C7127362B5800D3C17F /* AboutViewController.swift in Sources */,
 				96551C6F27362B4B00D3C17F /* SettingViewController.swift in Sources */,
 				96551C6D27362B4300D3C17F /* PlayViewController.swift in Sources */,

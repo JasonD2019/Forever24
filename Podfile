@@ -8,4 +8,5 @@ target '24' do
   # Pods for 24
   pod 'JFPopup', '1.4.0'
   pod 'DDMathParser', :git => 'https://github.com/davedelong/DDMathParser.git', :branch => 'master'
+  pod 'MaterialComponents/Buttons+Theming'
 end

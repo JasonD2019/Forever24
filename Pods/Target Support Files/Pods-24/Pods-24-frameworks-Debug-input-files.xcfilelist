@@ -2,3 +2,6 @@ ${PODS_ROOT}/Target Support Files/Pods-24/Pods-24-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/DDMathParser/MathParser.framework
 ${BUILT_PRODUCTS_DIR}/JFPopup/JFPopup.framework
 ${BUILT_PRODUCTS_DIR}/JRBaseKit/JRBaseKit.framework
+${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework
+${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework
+${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
